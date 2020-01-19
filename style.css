@@ -5,3 +5,7 @@ a:hover{
 a {
   color:orange;
 }
+    body {background-attachment: fixed;} 
+    body {background-repeat: no-repeat;}
+    body {background-position: center center;}
+    body {background-size: cover;}
