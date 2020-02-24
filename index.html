@@ -1,7 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/3.5.3/processing.min.js"></script>
+	<script type="application/processing" data-processing-target="programma1">
+int r=50;
+int g=0;
+int b=255;
+
+void setup() {
+  size(1000,600);
+  noStroke();
+}
+
+void draw() {
+  background(r-(mouseY*100),g,b-(mouseY*2/5));
+  maakWolk(100,100,100,50,-1,240);
+  maakWolk(900,200,150,75,1,150);
+  maakZon();
+  Maan();
+  Sterren();
+  Eiland();
+  maakZee();
+  boot();
+  Weerspiegeling();
+}
+
+void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int hoogteWolk, float beweegSnelheid, int grijswaarde) {
+  fill(grijswaarde);
+  ellipse(startXCoordinaat-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
+  ellipse(startXCoordinaat-20-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
+  ellipse(startXCoordinaat+10-mouseY*beweegSnelheid, startYCoordinaat+15, breedteWolk, hoogteWolk);
+}
+
+void maakZon() {
+  fill(255,255-(mouseY*(135.0/400.0)),0);
+  circle(500,mouseY,100+mouseY/5);  
+}
+void maakZee() {
+  fill(8,150,200);
+  rect(0,400,1000,200);
+}
+
+void boot(){
+ fill(0, 0, 0);
+ rect(300-mouseY/1.5, 450, 50, 20);
+ triangle(300-mouseY/1.5, 450, 300-mouseY/1.5, 470, 250-mouseY/1.5, 450);
+ triangle(350-mouseY/1.5, 450, 350-mouseY/1.5, 470, 365-mouseY/1.5, 450 );
+ //Rode streep op de boot
+ fill(255, 0, 0);
+ rect(300-mouseY/1.5, 455, 50, 5);
+ triangle(300-mouseY/1.5, 455, 300-mouseY/1.5, 460, 260-mouseY/1.5, 455 );
+ triangle(350-mouseY/1.5, 455, 350-mouseY/1.5, 460, 362-mouseY/1.5, 455 );
+ //Kajuit
+ fill(128, 48, 10);
+ rect(320-mouseY/1.5, 435, 30, 15);
+ //Stoompijp
+ fill(0, 0, 0);
+ rect(330-mouseY/1.5, 420, 10, 15);
+ rect(290-mouseY/1.5, 420, 10, 30);
+ fill(255, 0, 0);
+ rect(330-mouseY/1.5, 425, 10, 5);
+ rect(290-mouseY/1.5, 425, 10, 5);
+}
+
+void Eiland(){
+  fill(252,158,5);
+  ellipse(750,400,250,125);
+  //Eiland zelf
+  fill(75,42,2);
+  rect(700,350,20,-100);
+  fill(71,188,9);
+  ellipse(690,250,60,30);
+  fill(5,131,10);
+  ellipse(725,260,70,35);
+  fill(58,180,63);
+  ellipse(720,240,80,40);
+  //Boom
+  }
+  
+void Maan(){
+  fill(211,222,179);
+  circle(500,- 500+(mouseY),100);
+  fill(95,95,94);
+  circle(490,-500+(mouseY),25);
+  fill(144,144,141);
+  circle(525,-525+(mouseY),15);
+  fill(187,188,182);
+  circle(530,-475+mouseY,20);
+  fill(118,118,118);
+  circle(480,-525+mouseY,10);
+}
+
+void Sterren(){
+  fill(255);
+  circle(100,-500+mouseY,20);
+  circle(200,-586+mouseY,16);
+  circle(267,-523+mouseY,24);
+  circle(698,-512+mouseY,18);
+  circle(831,-589+mouseY,12);
+  circle(563,-534+mouseY,13);
+  circle(345,-587+mouseY,18);
+  circle(867,-534+mouseY,13);
+  circle(223,-575+mouseY,12);
+  circle(975,-590+mouseY,18);
+  circle(231,-516+mouseY,16);
+  circle(720,-523+mouseY,19);
+  circle(834,-577+mouseY,10);
+  circle(698,-543+mouseY,14); 
+}
+
+void Weerspiegeling(){
+  fill(255,255-(mouseY*(135.0/400.0)),0);
+  arc(500, 400, 100+mouseY/5, 100+mouseY/3, 0, PI, OPEN);
+  arc(500, 440, 100+mouseY/5, 100+mouseY/3, 0, PI, OPEN);
+}
+</script>
 	
 
   <table style="width:50%">
