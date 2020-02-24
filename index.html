@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
 	<script type="application/processing" data-processing-target="programma1">
 int r=50;
@@ -12,6 +13,7 @@ void setup() {
   size(1000,600);
   noStroke();
 }
+
 void draw() {
   background(r-(mouseY*100),g,b-(mouseY*2/5));
   maakWolk(100,100,100,50,-1,240);
@@ -23,8 +25,6 @@ void draw() {
   maakZee();
   boot();
   Weerspiegeling();
-  
- 
 }
 
 void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int hoogteWolk, float beweegSnelheid, int grijswaarde) {
@@ -33,18 +33,16 @@ void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int h
   ellipse(startXCoordinaat-20-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
   ellipse(startXCoordinaat+10-mouseY*beweegSnelheid, startYCoordinaat+15, breedteWolk, hoogteWolk);
 }
+
 void maakZon() {
   fill(255,255-(mouseY*(135.0/400.0)),0);
-  circle(500,mouseY,100+mouseY/5);
-  
+  circle(500,mouseY,100+mouseY/5);  
 }
 void maakZee() {
   fill(8,150,200);
   rect(0,400,1000,200);
-  
-
-
 }
+
 void boot(){
  fill(0, 0, 0);
  rect(300-mouseY/1.5, 450, 50, 20);
@@ -66,6 +64,7 @@ void boot(){
  rect(330-mouseY/1.5, 425, 10, 5);
  rect(290-mouseY/1.5, 425, 10, 5);
 }
+
 void Eiland(){
   fill(252,158,5);
   ellipse(750,400,250,125);
@@ -109,15 +108,13 @@ void Sterren(){
   circle(231,-516+mouseY,16);
   circle(720,-523+mouseY,19);
   circle(834,-577+mouseY,10);
-  circle(698,-543+mouseY,14);
-  
-  
+  circle(698,-543+mouseY,14); 
 }
+
 void Weerspiegeling(){
   fill(255,255-(mouseY*(135.0/400.0)),0);
   arc(500, 400, 100+mouseY/5, 100+mouseY/3, 0, PI, OPEN);
   arc(500, 440, 100+mouseY/5, 100+mouseY/3, 0, PI, OPEN);
-
 }
 </script>
 
